@@ -2,8 +2,7 @@ securitylabeller:
   prometheusAddr: ":8081"
   interval: 15s
   labelPrefix: secscan
-  namespaces:
-    - test
+  namespaces: []
   securityScanner:
     host: "https://quay.io"
     token: ""

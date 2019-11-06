@@ -15,9 +15,9 @@ run: build
 installcrds:
 	kubectl create -f deploy/imagemanifestvuln.yaml
 
-.PHONY: devenv
-devenv: installcrds
-	kubectl apply -f deploy/examples/
+.PHONY: test
+test:
+	go test -v -race -count=1 ./...
 
 .PHONY: vendor
 vendor:

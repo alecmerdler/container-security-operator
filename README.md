@@ -1,4 +1,4 @@
-# Container annotation operator
+# Container Security Operator
 Kubernetes Pod Security Scanner
 
 ## Example config
@@ -25,13 +25,13 @@ securitylabeller:
 
 - Scan pods and store the the vulnerability information in CRs (by image manifest)
 - Metrics via [Prometheus](https://prometheus.io)
-- 
 
 ## Development Environment
-Running the labeller locally requires a valid kubeconfig.
-If the kubeconfig flag is omitted, an in-cluster config is assumed.
 
-Running locally (using `~/.kube/config`):
+Running the labeller locally requires a valid kubeconfig referenced by `$KUBECONFIG`.
+If the `-kubeconfig` flag is omitted, an in-cluster config is assumed.
+
+Running locally (using `KUBECONFIG=~/.kube/config`):
 ```
 kubectl create -f deploy/imagemanifestvuln.yaml
 make run
@@ -45,6 +45,21 @@ TODO
 ## Examples
 
 ### Using kubectl
+
+### List all vulnerable images on the cluster:
+
+```sh
+$ kubect get imagemanifestvulns --all-namespaces
+```
+
+### Find if a specific pod in a namespace is using a vulnerable image
+
+```sh
+$ kubectl get imagemanifestvulns -n my-ns -l 'my-ns/my-pod'
+```
+
+
+FIXME(alecmerdler): Below examples are invalid...
 
 List the name of the pods with a specific vulnerability:
 
@@ -75,3 +90,7 @@ List all the pods that have fixable vulnerabilities
 ```sh
 $ kubectl get pods --selector=secscan/fixables -o jsonpath='{.items[*].metadata.name}'
 ```
+
+### Using the OpenShift Console (works on upstream Kubernetes)
+
+TODO(alecmerdler): Add picture
