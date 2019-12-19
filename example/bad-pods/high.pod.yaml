@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: high
+  generateName: cso-example-
   labels:
     cso-example: 'true'
 spec:
   containers:
-    - name: httpd
-      image: quay.io/operator-framework/httpd
+    - name: bad-image
+      image: quay.io/alecmerdler/bad-image:samba

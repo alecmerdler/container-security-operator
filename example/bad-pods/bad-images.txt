@@ -1,0 +1,3 @@
+quay.io/alecmerdler/bad-image:ansible
+quay.io/alecmerdler/couchbase-server
+quay.io/alecmerdler/httpd
