@@ -1,5 +1,5 @@
 channels:
-- currentCSV: container-security-operator.v1.0.4
-  name: alpha
-defaultChannel: alpha
+- currentCSV: container-security-operator.v3.3.0
+  name: stable
+defaultChannel: stable
 packageName: container-security-operator
