@@ -50,6 +50,9 @@ spec:
               - command:
                 - /bin/security-labeller
                 - '--namespaces=$(WATCH_NAMESPACE)'
+                ports:
+                  - name: metrics
+                    containerPort: 8081
                 env:
                 - name: MY_POD_NAMESPACE
                   valueFrom:

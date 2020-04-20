@@ -74,7 +74,7 @@ var (
 	PromSecscanRequestsDurationSeconds = prometheus.NewHistogramVec(
 		prometheus.HistogramOpts{
 			Name: "labeller_secscan_requests_duration_seconds",
-			Help: "Time it takes fto sync security information from secscan server, in seconds",
+			Help: "Time it takes to sync security information from secscan server, in seconds",
 		},
 		[]string{
 			"host",

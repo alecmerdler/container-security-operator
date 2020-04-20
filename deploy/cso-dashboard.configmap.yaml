@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: container-security-operator-dashboard
+  namespace: openshift-config-managed
+  labels:
+    console.openshift.io/dashboard: 'true'
+data:
+  

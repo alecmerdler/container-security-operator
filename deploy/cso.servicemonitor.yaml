@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: container-security-operator
+  labels:
+    name: container-security-operator
+spec:
+  namespaceSelector:
+    matchNames:
+      - openshift-monitoring
+      # TODO(alecmerdler): See if this works so we can get rid of `externalName` service
+      # - openshift-operators
+  selector:
+    matchLabels:
+      name: container-security-operator
+  endpoints:
+    - port: metrics
