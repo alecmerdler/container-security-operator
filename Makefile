@@ -11,14 +11,6 @@ build:
 run: build
 	./bin/security-labeller -kubeconfig ~/.kube/config  -config example/example-config.yaml
 
-.PHONY: installcrds
-installcrds:
-	kubectl create -f deploy/imagemanifestvuln.crd.yaml
-
-.PHONY: devenv
-devenv: installcrds
-	kubectl apply -f deploy/examples/
-
 .PHONY: vendor
 vendor:
 	go mod vendor
@@ -79,6 +71,11 @@ codegen-container: BUILD_CODEGEN_IMAGE
 	-w $(REPO_ROOT) \
 	$(CODEGEN_IMAGE) \
 	make codegen
+
+
+.PHONY: release
+release:
+  
 
 
 # =====================
