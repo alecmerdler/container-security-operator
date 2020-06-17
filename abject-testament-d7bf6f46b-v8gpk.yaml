@@ -1,0 +1,128 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  generateName: abject-testament-d7bf6f46b-
+  annotations:
+    k8s.v1.cni.cncf.io/networks-status: |-
+      [{
+          "name": "openshift-sdn",
+          "interface": "eth0",
+          "ips": [
+              "10.129.2.191"
+          ],
+          "dns": {},
+          "default-route": [
+              "10.129.2.1"
+          ]
+      }]
+    openshift.io/scc: restricted
+  selfLink: >-
+    /api/v1/namespaces/skynet-vulnerabilities/pods/abject-testament-d7bf6f46b-v8gpk
+  resourceVersion: '35174917'
+  name: abject-testament-d7bf6f46b-v8gpk
+  uid: bf23cbb2-9b38-457d-9486-9f2474e6c954
+  creationTimestamp: '2020-06-17T18:13:52Z'
+  namespace: skynet-vulnerabilities
+  ownerReferences:
+    - apiVersion: apps/v1
+      kind: ReplicaSet
+      name: abject-testament-d7bf6f46b
+      uid: 49c26f7c-f515-4bb7-ae3f-c4f44d624eae
+      controller: true
+      blockOwnerDeletion: true
+  labels:
+    app: abject-testament
+    pod-template-hash: d7bf6f46b
+spec:
+  restartPolicy: Always
+  serviceAccountName: default
+  imagePullSecrets:
+    - name: default-dockercfg-5vwgt
+  priority: 0
+  schedulerName: default-scheduler
+  enableServiceLinks: true
+  terminationGracePeriodSeconds: 30
+  nodeName: opensh-pphmv-w-b-5vkb7.c.quay-devel.internal
+  securityContext:
+    seLinuxOptions:
+      level: 's0:c25,c5'
+    fsGroup: 1000610000
+  containers:
+    - resources: {}
+      terminationMessagePath: /dev/termination-log
+      name: abject-testament
+      command:
+        - /bin/sh
+        - '-c'
+        - '--'
+      securityContext:
+        capabilities:
+          drop:
+            - KILL
+            - MKNOD
+            - SETGID
+            - SETUID
+        runAsUser: 1000610000
+      imagePullPolicy: IfNotPresent
+      volumeMounts:
+        - name: default-token-2lzbq
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePolicy: File
+      image: 'quay.io/alecmerdler/bad-image:critical'
+      args:
+        - while true; do sleep 30; done;
+  serviceAccount: default
+  volumes:
+    - name: default-token-2lzbq
+      secret:
+        secretName: default-token-2lzbq
+        defaultMode: 420
+  dnsPolicy: ClusterFirst
+  tolerations:
+    - key: node.kubernetes.io/not-ready
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/unreachable
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+status:
+  phase: Running
+  conditions:
+    - type: Initialized
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2020-06-17T18:13:52Z'
+    - type: Ready
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2020-06-17T18:13:57Z'
+    - type: ContainersReady
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2020-06-17T18:13:57Z'
+    - type: PodScheduled
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2020-06-17T18:13:52Z'
+  hostIP: 10.0.32.2
+  podIP: 10.129.2.191
+  podIPs:
+    - ip: 10.129.2.191
+  startTime: '2020-06-17T18:13:52Z'
+  containerStatuses:
+    - restartCount: 0
+      started: true
+      ready: true
+      name: abject-testament
+      state:
+        running:
+          startedAt: '2020-06-17T18:13:56Z'
+      imageID: >-
+        quay.io/alecmerdler/bad-image@sha256:f266d185f6ef0d8c98bf965d6a687914c3f4a73ecd8ec043d6f7d45a4de4d8ec
+      image: 'quay.io/alecmerdler/bad-image:critical'
+      lastState: {}
+      containerID: 'cri-o://9a922ef02802e165f58028753bc1e059c15e6cf75fb6fd69bf16bc817f5a6daf'
+  qosClass: BestEffort

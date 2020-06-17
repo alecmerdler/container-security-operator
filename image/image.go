@@ -6,7 +6,7 @@ import (
 	"regexp"
 	"strings"
 
-	"k8s.io/api/core/v1"
+	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	corev1 "k8s.io/client-go/kubernetes/typed/core/v1"
 
@@ -125,6 +125,7 @@ func (img *Image) String() string {
 	return strings.Join([]string{r, img.Tag}, ":")
 }
 
+// FIXME(alecmerdler): Copying a tag from one registry to another results in `imageID` from the original registry, breaking scanning...
 func ParseImageID(imageID string) (*Image, error) {
 	var img, host, namespace, repository, digest string
 
